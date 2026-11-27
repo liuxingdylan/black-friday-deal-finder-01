@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Black Friday Verdict — real prices, checked today</title>
+<meta name="description" content="82 real Black Friday deals, each checked on Nov 27, 2026, with the sale price, the usual price, a store link and an honest verdict on whether it is really a deal.">
+<link rel="stylesheet" href="style.css">
+<script type="module" src="app.js"></script>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap">
+    <p class="kicker">Black Friday 2026 · Friday, November 27</p>
+    <h1>Black Friday Verdict</h1>
+    <p class="tagline">Real prices, checked today. No fake was-prices, no routine sale dressed up as a doorbuster.</p>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="stats" aria-label="Board totals">
+    <div><strong id="stat-deals">–</strong><span>deals checked</span></div>
+    <div><strong id="stat-true">–</strong><span>true deals</span></div>
+    <div><strong id="stat-saved">–</strong><span>total savings if you bought one of each</span></div>
+    <div><strong id="stat-checked">–</strong><span>last checked</span></div>
+  </section>
+
+  <section class="controls" aria-label="Search and filters">
+    <label class="search-label">Search deals
+      <input id="search" type="search" placeholder="Try “airpods”, “OLED”, “lego”… " autocomplete="off">
+    </label>
+    <div class="chips" id="categories" role="group" aria-label="Category"></div>
+    <div class="selects">
+      <label>Store
+        <select id="store"></select>
+      </label>
+      <label>At least
+        <select id="min-off">
+          <option value="0">any discount</option>
+          <option value="20">20% off</option>
+          <option value="30">30% off</option>
+          <option value="40">40% off</option>
+          <option value="50">50% off</option>
+        </select>
+      </label>
+      <label>Verdict
+        <select id="verdict">
+          <option value="all">any verdict</option>
+          <option value="true">True deal</option>
+          <option value="strong">Strong price</option>
+          <option value="routine">Routine sale</option>
+          <option value="weak">Weak — check first</option>
+        </select>
+      </label>
+      <label>Sort by
+        <select id="sort">
+          <option value="best">Best verdict first</option>
+          <option value="discount">Biggest discount</option>
+          <option value="saving">Biggest saving ($)</option>
+          <option value="price-low">Lowest price</option>
+          <option value="price-high">Highest price</option>
+        </select>
+      </label>
+      <button type="button" id="clear-filters" class="clear">Clear filters</button>
+    </div>
+  </section>
+
+  <p class="count" id="result-count" aria-live="polite"></p>
+  <section id="deal-list" aria-label="Deals"></section>
+
+  <section class="method" aria-label="How the verdicts work">
+    <h2>How a deal earns its verdict</h2>
+    <ul>
+      <li><span class="deal-badge verdict-true">TRUE DEAL</span> — the deepest cut on the board, a record-low price, or half off a real usual price.</li>
+      <li><span class="deal-badge verdict-strong">STRONG PRICE</span> — a solid cut worth buying, just not the lowest the item has ever sold for.</li>
+      <li><span class="deal-badge verdict-routine">ROUTINE SALE</span> — a small cut on a real price. Fine if you need it now, not a reason to rush.</li>
+      <li><span class="deal-badge verdict-weak">WEAK — CHECK FIRST</span> — the discount looks big against the list price, but the price is still high against its own history.</li>
+    </ul>
+    <h2>How the prices were checked</h2>
+    <p>Every deal on this board was found and checked on Black Friday, November 27, 2026, by reading the price at the store or in a deals source that names the store — Best Buy's own Black Friday release, The Verge's deals guide, BeeBulletin's checked table, the Trendthread diary, Tom's Guide, and Benzinga's Black Friday wire. Each deal shows where its price was read and when. Tap any deal to see the evidence. Prices move all day on Black Friday, so confirm the price at checkout before you buy.</p>
+    <p class="fineprint">All prices in US dollars. Store links open the store's own search for the product. This board is an independent check, not a store, and it takes no payment from any retailer. Streaming prices are the promotional rate for the period shown; they rise to the usual price after it.</p>
+  </section>
+</main>
+
+<footer class="wrap">
+  <p>Black Friday Verdict · Built November 27, 2026 · 82 deals, checked today, with a source on every one.</p>
+</footer>
+</body>
+</html>

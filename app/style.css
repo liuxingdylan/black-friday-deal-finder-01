@@ -1,0 +1,207 @@
+/* Black Friday Verdict — dark charcoal, amber highlight, dense deal rows. */
+:root {
+  --ink: #17150f;
+  --paper: #fffdf6;
+  --card: #ffffff;
+  --muted: #6b6558;
+  --line: #e4ddc9;
+  --amber: #f5b301;
+  --amber-ink: #3d2c00;
+  --green: #157347;
+  --green-bg: #d9f2e4;
+  --strong: #8a5a00;
+  --strong-bg: #fdeec2;
+  --slate: #5b6470;
+  --slate-bg: #e8ebef;
+  --red: #a31d1d;
+  --red-bg: #fbe3e3;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font: 16px/1.5 system-ui, -apple-system, "Segoe UI", sans-serif;
+  color: var(--ink);
+  background: var(--paper);
+}
+
+.wrap { max-width: 1020px; margin: 0 auto; padding: 0 18px; }
+
+.masthead {
+  background: var(--ink);
+  color: #fdf6dd;
+  padding: 34px 0 26px;
+  border-bottom: 5px solid var(--amber);
+}
+.kicker {
+  margin: 0 0 6px;
+  color: var(--amber);
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.masthead h1 { margin: 0; font-size: 40px; line-height: 1.05; letter-spacing: -0.01em; }
+.tagline { margin: 10px 0 0; color: #d8d0b8; font-size: 17px; max-width: 640px; }
+
+.stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  margin: 20px 0 4px;
+}
+.stats div {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 12px 14px;
+}
+.stats strong { display: block; font-size: 26px; line-height: 1.1; }
+.stats span { font-size: 13px; color: var(--muted); }
+
+.controls { padding: 16px 0 6px; }
+.search-label { display: block; font-weight: 700; font-size: 14px; }
+.search-label input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 12px 14px;
+  font: inherit;
+  border: 2px solid var(--ink);
+  border-radius: 10px;
+  background: var(--card);
+}
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
+.chip {
+  padding: 6px 12px;
+  font: inherit;
+  font-size: 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--card);
+  cursor: pointer;
+}
+.chip.active { background: var(--ink); color: #fdf6dd; border-color: var(--ink); }
+.selects { display: flex; flex-wrap: wrap; gap: 12px; align-items: end; margin-top: 14px; }
+.selects label { font-size: 13px; font-weight: 700; color: var(--muted); }
+.selects select {
+  display: block;
+  margin-top: 4px;
+  padding: 8px 10px;
+  font: inherit;
+  font-size: 14px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--card);
+}
+.clear {
+  padding: 9px 14px;
+  font: inherit;
+  font-size: 14px;
+  border: 1px solid var(--ink);
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+}
+
+.count { margin: 14px 0 8px; font-weight: 700; }
+
+.deal {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-left: 5px solid var(--slate);
+  border-radius: 10px;
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+.deal.verdict-true { border-left-color: var(--green); }
+.deal.verdict-strong { border-left-color: var(--amber); }
+.deal.verdict-weak { border-left-color: var(--red); }
+.deal-main {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto auto;
+  grid-template-areas:
+    "title price off badge"
+    "meta save save badge";
+  gap: 2px 16px;
+  width: 100%;
+  padding: 14px 16px;
+  font: inherit;
+  text-align: left;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+.deal-title { grid-area: title; font-weight: 700; font-size: 16px; }
+.deal-meta { grid-area: meta; font-size: 13px; color: var(--muted); }
+.deal-price { grid-area: price; font-weight: 800; font-size: 19px; white-space: nowrap; }
+.deal-price s { font-weight: 400; font-size: 14px; color: var(--muted); margin-left: 6px; }
+.deal-off { grid-area: off; font-weight: 800; font-size: 19px; color: var(--green); white-space: nowrap; }
+.deal-save { grid-area: save; font-size: 13px; color: var(--muted); text-align: right; }
+.deal-badge {
+  grid-area: badge;
+  align-self: center;
+  padding: 4px 9px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  border-radius: 6px;
+  white-space: nowrap;
+}
+.verdict-true .deal-badge { background: var(--green-bg); color: var(--green); }
+.verdict-strong .deal-badge { background: var(--strong-bg); color: var(--strong); }
+.verdict-routine .deal-badge { background: var(--slate-bg); color: var(--slate); }
+.verdict-weak .deal-badge { background: var(--red-bg); color: var(--red); }
+
+.detail { border-top: 1px dashed var(--line); padding: 14px 16px 16px; }
+.detail-why { margin: 0 0 12px; }
+.detail-facts {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: 3px 18px;
+  margin: 0 0 12px;
+  font-size: 14px;
+}
+.detail-facts dt { font-weight: 700; }
+.detail-facts dd { margin: 0; }
+.shop-link {
+  display: inline-block;
+  padding: 9px 16px;
+  background: var(--amber);
+  color: var(--amber-ink);
+  font-weight: 800;
+  text-decoration: none;
+  border-radius: 8px;
+}
+.detail-note { display: block; margin-top: 8px; font-size: 13px; color: var(--muted); }
+
+.empty { padding: 28px; text-align: center; color: var(--muted); }
+
+.method { margin: 34px 0 10px; border-top: 2px solid var(--ink); padding-top: 18px; }
+.method h2 { font-size: 20px; margin: 18px 0 10px; }
+.method ul { list-style: none; padding: 0; margin: 0; }
+.method li { margin-bottom: 10px; }
+.method p { max-width: 760px; }
+.fineprint { font-size: 13px; color: var(--muted); }
+
+footer { padding: 8px 0 40px; color: var(--muted); font-size: 13px; }
+
+@media (max-width: 640px) {
+  .masthead { padding: 22px 0 18px; }
+  .masthead h1 { font-size: 28px; }
+  .tagline { font-size: 15px; }
+  .stats { grid-template-columns: repeat(2, 1fr); }
+  .stats strong { font-size: 22px; }
+  .deal-main {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "title title"
+      "meta meta"
+      "price off"
+      "save badge";
+    row-gap: 4px;
+  }
+  .deal-save { text-align: left; }
+  .deal-badge { justify-self: start; }
+}
